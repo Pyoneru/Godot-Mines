@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Utils/Exiter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Menu/Start.png" type="Texture" id=2]
+[ext_resource path="res://Menu/Start_Pressed.png" type="Texture" id=3]
+[ext_resource path="res://Menu/Menu.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.490196, 0.741176, 0.396078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.298039, 0.694118, 0.266667, 1 )
+
+[sub_resource type="StyleBoxLine" id=3]
+color = Color( 0.811765, 0.772549, 0.305882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.509804, 0.827451, 0.490196, 1 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 152, 52 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 152, 52 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 152, 52 )
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 1.0
+margin_right = 736.0
+margin_bottom = 768.0
+color = Color( 0.517647, 0.921569, 0.666667, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exiter" parent="." instance=ExtResource( 1 )]
+
+[node name="Easy_Level" type="Button" parent="."]
+margin_left = 200.0
+margin_top = 184.0
+margin_right = 272.0
+margin_bottom = 219.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "EASY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Normal_Level" type="Button" parent="."]
+margin_left = 312.0
+margin_top = 184.0
+margin_right = 384.0
+margin_bottom = 219.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "NORMAL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hard_Level" type="Button" parent="."]
+margin_left = 424.0
+margin_top = 184.0
+margin_right = 496.0
+margin_bottom = 219.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "HARD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selected" type="ColorRect" parent="."]
+margin_left = 312.0
+margin_top = 224.0
+margin_right = 384.0
+margin_bottom = 232.0
+color = Color( 0.87451, 0.862745, 0.145098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="."]
+margin_left = 280.0
+margin_top = 408.0
+margin_right = 432.0
+margin_bottom = 460.0
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Easy_Level" to="." method="_on_Easy_Level_pressed"]
+[connection signal="pressed" from="Normal_Level" to="." method="_on_Normal_Level_pressed"]
+[connection signal="pressed" from="Hard_Level" to="." method="_on_Hard_Level_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
